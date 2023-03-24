@@ -1,0 +1,62 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}Welcome to The Morning Cart | Product | Developed by Mahmud Rayhan{% endblock %}
+{% block body %}
+{% block nav %}{{block.super}}{% endblock nav %}
+
+
+  <!-- Products Viewing Section -->
+    <section id="prodView" class="mt-5">
+
+      <div class="headline text-center mb-5">
+      <h1 class="pb-2 pt-3 position-relative d-inline-block">PRODUCTS</h1>
+      </div>
+
+      <!-- category 1 - Shoes -->
+        <div class="container prod-category ms-auto">      
+      {% for product in products%}  
+            <h2 class="cat-title">{{product.0.category}}</h2>
+            
+            <!-- Sliders -->
+            <div class="prod-slider row owl-carousel owl-theme">
+            {% for i in product|slice:"0:" %}  
+            <!-- Cards -->
+              <div class="prod-card col-lg-2 col-sm-4 col-6 p-4 item">
+                <div class="prod-image">
+                  <img src="/media/{{i.productImage}}" alt="{{i.ProductName}}">
+                </div>
+                <div class="prod-content">
+                  <h3>{{i.title}}</h3>
+              
+              <!-- RATINGS -->
+              {% block star %}{{block.super}}
+              {% endblock star %}
+                 <div class="price">{{i.price}} ৳</div>
+                 </div>
+                
+              <!-- PRODUCT INFO -->
+                <div class="prod-info">
+                  <h4>Description</h4>
+                  <p>{{i.description}}</p>
+                  <a href="#"><button type="button" class="btn btn-danger">add to cart</button></a>
+                  <div class="share">
+                    <a href="#"><span class="ti-facebook"></span></a>
+                    <a href="#"><span class="ti-instagram"></span></a>
+                    <a href="#"><span class="ti-twitter"></span></a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
+
+      {% endfor %}
+        </div>
+    </section>
+    {% block JS %}
+    {{block.super}}
+    {% endblock JS%}
+
+
+{% endblock body %}
+
+

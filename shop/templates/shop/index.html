@@ -1,0 +1,258 @@
+{% extends 'shop/base.html' %}
+{% block title %}Welcome to The Morning Cart | Home | Developed by Mahmud Rayhan{% endblock %}
+{% load static %}
+{% block body %}
+{% block nav %}{{block.super}}{% endblock nav %}
+
+
+
+<div data-bs-spy="scroll" data-bs-target=".navbar" class="scrollspy">
+
+<!-- Home Section HTML-->
+<section id="home" class="home pt-5 overflow-hidden">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- bottom buttons -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+
+    <!-- items -->
+    <div class="carousel-inner">
+     <div class="carousel-item active">
+
+    <!-- <div class="home-banner home-banner-1" style="background: url('{% static 'shop/assets/img/coverOne.jpg' %}'); background-repeat: no-repeat; background-size: cover;"> -->
+    <div class="home-banner home-banner-1"">
+        <div class="home-banner-text home-banner-text-1">
+          <h1>{{ banners.0.heading }}</h1>
+          <h3>{{ banners.0.banner_text }}</h3>
+          <a href="#" class="btn btn-danger mt-4">{{ banners.0.btn_text }}</a>
+        </div>
+      </div>
+    </div>
+
+     <div class="carousel-item">
+        <div class="home-banner home-banner-2">
+          <div class="home-banner-text home-banner-text-2">
+            <h1>{{ banners.1.heading }}</h1>
+            <h3>{{ banners.1.banner_text }}</h3>
+            <a href="#" class="btn btn-danger mt-2">{{ banners.1.btn_text }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- next & prev buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="ti-angle-left slider-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="ti-angle-right slider-icon"></span>
+    </button>
+
+  </div>
+
+
+  <!-- Offers div -->
+   <div class="offers">
+    <div class="container">
+      <div class="row">
+        
+          <!-- Offer Box one -->
+          <div class="col-sm-4 col-4 col-lg-4 mb-lg-0 mb-4">
+            <a href="#">
+              <div class="offer-box text-center position-relative">
+                <div class="offer-innner">
+                  <div class="offer-image position-relative overflow-hidden">
+                    <img src="/media/{{sales.1.cover_image}}" alt="{{sales.1.ProductName}}" class="img-fluid">
+                     <div class="offer-overlay"></div>
+                      </div>
+                       <div class="offer-info">
+                         <div class="offer-info-inner">
+                           <p class="heading-bigger text-capitalize">Sale {{sales.1.percentage}}%</p>
+                           <p class="offer-title-1 text-uppercase font-weight-bold">Don't Miss the Chance</p>
+                           <button  type="button" class="btn btn-outline-danger text-uppercase mt-4">Shop Now</button>                    
+                         </div>
+                      </div>
+                </div>
+              </div>
+            </a>
+          </div><!-- Ends of Offer Box One-->
+
+
+          <!-- Offer Box Two -->
+          <div class="col-sm-4 col-4 col-lg-4 mb-lg-0 mb-4">
+            <a href="#">
+              <div class="offer-box text-center position-relative">
+                <div class="offer-innner">
+                  <div class="offer-image position-relative overflow-hidden">
+                    <img src="/media/{{sales.2.cover_image}}" alt="{{sales.2.ProductName}}" class="img-fluid">
+                     <div class="offer-overlay"></div>
+                      </div>
+                       <div class="offer-info">
+                         <div class="offer-info-inner">
+                           <p class="heading-bigger text-capitalize">Sale {{sales.2.percentage}}%</p>
+                           <p class="offer-title-1 text-uppercase font-weight-bold">Don't Miss the Chance</p>
+                           <button  type="button" class="btn btn-outline-danger text-uppercase mt-4">Shop Now</button>                    
+                         </div>
+                      </div>
+                </div>
+              </div>
+            </a>
+          </div><!-- Ends of Offer Box One-->
+
+
+          <!-- OFFER BOX THREE -->
+          <div class="col-sm-4 col-4  col-lg-4 mb-lg-0 mb-4">
+            <a href="#">
+              <div class="offer-box text-center position-relative">
+                <div class="offer-innner">
+                  <div class="offer-image position-relative overflow-hidden">
+                    <img src="/media/{{sales.3.cover_image}}", alt="{{sales.3.ProductName}}" class="img-fluid">
+                      <div class="offer-overlay"></div>
+                        </div>
+                          <div class="offer-info">
+                            <div class="offer-info-inner">
+                              <p class="heading-bigger text-capitalize">Sale {{sales.3.percentage}}%</p>
+                              <p class="offer-title-1 text-uppercase font-weight-bold">Don't Miss the Chance</p>
+                              <button  type="button" class="btn btn-outline-danger text-uppercase mt-4">Shop Now</button>                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div><!-- Ends of Offer Box One-->
+
+      </div>
+    </div>
+
+   </div> <!-- Ends of Offer Division-->
+
+
+</section>
+
+
+
+
+<!-- FEATURED PRODUCT SECTION HTML -->
+<section id="featureds" class="products">
+  <div class="container">
+   <!-- product headline -->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="headline text-center mb-5">
+          <h2 class="pb-3 position-relative d-inline-block">FEATURED PRODUCTS</h2>
+        </div>
+      </div>
+    </div>
+  <!-- FEATURED PRODUCTS -->
+  {%for fProduct in featureds%} 
+    <h2 class="cats-title">{{fProduct.0.category}}</h2>
+
+   <!-- Sliders -->
+    <div class="prod-slider row owl-carousel owl-theme">
+      {%for i in fProduct|slice:"0:"%}
+    <!-- CARDS -->
+       <div class="prod-card col-sm-6">
+        <a href="#" class="d-block text-center mb-4">
+          <div class="product-list">
+            <div class="product-image position-relative">
+              {% if i.price_before != 0 %}
+              <span class="sale">Sale</span>
+              {% endif %}
+                <img src="/media/{{i.cover_image}}" alt="{{i.ProductName}}" class="product-image-1">  
+                <img src="/media/{{i.cover_image_2}}" alt="{{i.ProductName}}" class="product-image-2">  
+            </div>
+            <div class="product-name pt-3">
+              <h3 class="text-capitalized">{{i.ProductName}}</h3>
+              <p class="mb-0 amount">৳{{i.price_now}}. 00   <del>৳{{i.price_before}}</del></p>
+            
+
+            </a>
+              <button type="button" class="add_to_cart cart">ADD TO CART</button>
+            </div>
+          </div>
+       </div>
+      {%endfor%}
+    </div>
+  {%endfor%}
+  </div>
+
+<!-- Feature Products -->
+<div class="container featureds">
+  <h2>Fatured Products</h2>
+  {%for fProduct in featureds%}
+  <h2 class="cats-title">{{fProduct.0.category}}</h2>
+
+  <!-- SLiders -->
+  <div class="row prod-slider owl-carousel owl-theme">
+ {%for i in fProduct|slice:"0:"%}
+
+ <!-- CARDS -->
+    <div class="prod-card col-sm-6">
+      <!-- Sale Icon -->
+      {% if i.price_before != 0 %}
+      <span class="sale">Sale</span>
+      {% endif %}      
+
+      <img src="/media/{{i.cover_image}}" alt="{{i.ProductName}}" class="product-image-1">  
+      <h6 class="text-capitalized">{{i.ProductName}}</h6>
+      <p class="mb-0 amount">৳{{i.price_now}}. 00   <del>৳{{i.price_before}}</del></p>
+        <!-- five starts ratings -->
+        {% block star %}
+        {{block.super}}
+        {% endblock star %}      
+      
+    </div>
+    {%endfor%}
+  </div>
+  {%endfor%}
+</div>
+
+
+
+
+  <!-- UP TO 50% OFF BANNER -->
+  <div class="overflow-hidden my-5">
+    <div class="row">
+      <div class="col-sm-12 up-to-off">
+        <img src="/media/{{banners.2.cover_image}}" alt="{{banners.2.banner_text}}" class="img-fluid w-100">
+        <div class="up-to-content">
+          <h2>{{banners.2.banner_text}}</h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock body %}
+
+
+
+{% block JS %}
+{{block.super}}
+{% endblock JS %}
+
+{%block owl%}  
+<script>
+  $('.prod-slider').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+responsive:{
+    0:{
+        items:1
+    },
+    600:{
+        items:2
+    },
+    1000:{
+        items:3
+    }
+}
+})
+</script>
+{%endblock owl%} 

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'shop/assets/css/bootstrap.min.css' %}">
+
+    <!-- Mine css -->
+    <link rel="stylesheet" href="{% static 'shop/assets/css/style.css' %}">
+
+    <!-- Products css -->
+    <link rel="stylesheet" href="{% static 'shop/assets/css/products.css' %}"> 
+
+    <!-- themify icons css -->
+    <link rel="stylesheet" href="{% static 'shop/assets/css/themify-icons/themify-icons.css' %}">
+
+    <!-- Owl Carousel -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>   
+
+    <title>{% block title %}Base Title{% endblock %}</title>
+  </head>
+  {% block body %}
+  <body>
+    {% block nav %}
+        <!-- Navbar section --> 
+  <section id="header">
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">MorningCart</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="ti-align-justify navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/shop/#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shop/#featureds">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#reviews">Reviews</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">ContactUs</a>
+            </li>
+
+            
+            <li class="nav-icon">
+              <a href=""><i id="cart-icon" class="ti ti-shopping-cart" aria-hidden="true"></i>
+              <span class="cart-items">2</span></a>
+            </li>
+
+            <li class="nav-icon"><a href=""><i id="search-icon" class="ti ti-search"></i></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  {% endblock nav %}
+
+
+  <!-- FIVE STAR RATINGS BLOCK -->
+  {% block star %}
+  <div class="stars">
+     <div class="stars-outer">    
+      {% with ratings=i.Ratings %}              
+       <div class="stars-inner w-{{ ratings }}"></div>
+      {% endwith %}
+     </div>
+  </div>
+{%endblock star %}
+
+
+
+  </body>
+  {% endblock body %}
+
+  
+
+
+
+  <!-- JAVA SCRIPT FILES HERE -->
+  <!-- Bootstrap JS files -->
+  <script src="{% static 'shop/assets/js/bootstrap.min.js' %}"></script>
+  <!-- Own JS file -->
+  <script src="{% static 'shop/assets/js/mine.js' %}"></script>
+      <!-- Owl Carousla Script -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{%block owl%}  
+   <script>
+        $('.prod-slider').owlCarousel({
+      loop:true,
+      margin:10,
+      nav:true,
+      responsive:{
+          0:{
+              items:1
+          },
+          600:{
+              items:2
+          },
+          1000:{
+              items:4
+          }
+      }
+  })
+      </script>
+{%endblock owl%}
+
+{% block JS %}
+<script>
+  console.log("Hello World from Base");
+  if(localStorage.getItem('cart') == null){
+  var cart = {};
+  }
+  else
+  {
+  cart = JSON.parse(localStorage.getItem('cart'));
+  }
+
+  $('cart').click(function(){
+    console.log('clicked');
+  });
+</script>
+{% endblock JS %}
+</html>

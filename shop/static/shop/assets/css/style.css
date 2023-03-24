@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    /* background-color: ; */
+    --bg-danger: #f63440;
+    --bg-white: #fff;
+    --bg-light: #f5f5f5;
+    --bg-black: rgb(7, 0, 0);
+
+    /* Text Colour */
+    --primary-font: "Poppins", sans-serif;
+    --text-white: rgb(248, 247, 247);
+    --text-black: #121212;
+    --text-danger: #f63440;
+    --text-gray: #aaa;
+    --text-dark-gray: #777; 
+}
+
+body{
+    font-family: var(--primary-font);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    background: var(--bg-white);
+    color: var(--text-black);
+}
+
+/* Custom CSS */
+a,
+a:hover{
+    text-decoration: none;
+}
+
+p{
+    margin: 0;
+}  
+
+.btn-danger{
+    background: var(--bg-danger);
+    border-color: var(--bg-danger);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-danger:hover{
+    color: var(--text-danger);
+    background: transparent;
+}
+
+/* Navigation CSS */
+#header .fixed-top{
+    box-shadow: 0 0.125rem 0.675rem rgb(0 0 0 / 5%);
+
+}
+
+#header .navbar-toggler-icon{
+    width: unset;
+    height: unset;
+}
+#header .navbar-toggler:focus{
+box-shadow: none;
+}
+
+
+/* Navbar's items text */
+
+#header .navbar .nav-item .nav-link{
+    color: var(--text-black);
+    padding: 0.5rem  1rem;
+    text-align: center;
+}
+#header .navbar .nav-icon {
+    color: var(--text-black);
+    padding: 0.5rem 0.51rem;
+    text-align: center;
+}
+#header .navbar .nav-item .nav-link:hover,
+#header .navbar .nav-item .nav-link:active{
+    color: var(--text-danger);
+}
+
+
+/* Home section CSS*/
+
+.home .home-banner-1{
+    background: url("/static/shop/assets/img/cover1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 90% center; 
+    min-height: 650px;
+    position: relative;
+
+}
+
+ .home .home-banner-2{
+    background: url("/static/shop/assets/img/cover3.png");
+    background-repeat: no-repeat;
+    background-position: 60% center; 
+    min-height: 650px;
+    position: relative;
+} 
+
+
+.home .home-banner-text{
+    position: absolute;
+    transform: translate(-100%, -50%  );
+}
+.home .home-banner-text h1{
+    font-size: 3rem;
+}
+
+
+.home .home-banner-text-1 {
+    top: 50%;
+    left:50%;
+}
+
+.home .home-banner-text-2{
+    top: 20%;
+    left: 40%;
+}
+
+.home .carousel-indicators [data-bs-target]{
+    background-color: var(--bg-black);
+    height: 0.313rem;
+    width: 2.5rem;
+}
+
+.home .carousel-control-,
+.home .carousel-control-next{
+    background: transparent;
+}
+.home .slider-icon{
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-danger);
+
+}
+
+/* SALE SECTION CSS */
+.offers {
+    padding-top: 0.75rem;
+}
+.offers .offer-box .offer-image::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: -100%;
+    z-index: 2;
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    transform: skewX(-25deg);
+}
+
+.offers .offer-box .offer-image img{
+    transform: scale(1.03);
+    width: 100%;
+    height: 35rem;
+    object-fit: cover;
+}
+
+.offers .offer-box .offer-image img:hover{
+    transform: scale(1.23);
+}
+
+.offers .offer-box:hover .offer-image::before{
+    animation: effect_shine 1s;
+
+}
+
+
+@keyframes effect_shine{
+    100%{
+      left: 150%;
+    }
+}
+
+.offers .offer-overlay::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(36, 35, 35, 0.4);
+    z-index: 1;
+}
+
+.offers .offer-box .offer-info{ 
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    transition: all 250ms ease-out;
+    justify-content: center;
+}
+
+.offers .offer-box .offer-info .heading-bigger{
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: var(--text-white);
+
+}
+
+.offers .offer-box .offer-info .offer-title-1{
+    font-size: .9rem;
+    line-height: 1;
+    font-weight: 450;
+    margin-bottom: 0;
+    color: var(--text-white);
+    letter-spacing: 2px;
+}
+.offers .offer-box .offer-info .btn-outline-danger{
+    color: var(--text-white);
+    border-color: var(--bg-white);
+    transition: all 0.3s ease-in-out;
+}
+.offers .offer-box .offer-info .btn-outline-danger:hover{
+    border-color: var(--bg-danger);
+    background-color: var(--bg-danger);
+}
+
+
+
+/* FEATURED PRODUCT CSS - */
+.products{
+    padding-top: 8.75rem;
+}
+
+/* HEADLINE  STYLE */
+.headline h2::before{
+    content: "";
+    width: 30%;
+    height: 0.125rem;
+    background-color: var(--bg-danger);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.26rem;
+    transition: all 1s ease-out 3s;
+}
+
+
+
+.products a{
+    text-decoration: none;
+    color: var(--text-black);
+}
+.products .container .row {
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+}
+
+/* PROUCT IMAGE STYLE */
+.products .container .cats-title {
+    font-size: 1.65rem;
+    color: var(--text-danger);
+    margin-top: 5rem;
+    padding: 10px 20px;
+} 
+
+.row .product-list .product-image img{
+    width: 160px;
+    height: 160px;
+    transition: all 500ms ease-in-out;
+    margin: auto;
+} 
+
+
+
+.row .product-list .product-image .product-image-2{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; 
+
+}
+.product-list .product-image:hover .product-image-2{
+    opacity: 1;
+}
+.product-list .product-image:hover .product-image-1{
+    opacity: 0;
+}
+
+.product-list .product-image .sale{
+    background: var(--bg-danger) ;
+    border-radius: 0.313rem;
+    color: var(--text-white);
+    font-size: 0.813rem;
+    letter-spacing: 0.13;
+    line-height: 1.563rem;
+    padding: 0.125rem 0.813rem;
+    text-transform: uppercase;
+    position: absolute;
+    left: 1rem;
+    top: 1.188rem;
+    z-index: 99;
+}
+
+.product-list .product-name h3{
+    font-size: 1.125rem;
+    color: var(--text-black);
+    transition: all 0.3s ease  0s;
+    margin: 0;
+}
+
+.product-list .product-name h3:hover{
+    color: var(--text-danger);
+}
+
+.product-list .product-name .amount{
+    color: var(--text-danger);
+    font-weight: 500;
+}
+
+.product-list .product-name .amount del{
+    color: var(--text-dark-gray);
+}
+
+.product-list .product-name .ti-star{
+    color: var(--text-gray);
+}
+.product-list .product-name .ti-star.active{
+    color: var(--text-danger);
+    background-color: var(--bg-light);
+}
+
+.product-list .product-name .add_to_cart{
+    background-color: var(--bg-danger);
+    color: var(--text-white);
+    border-radius: 5px;
+    border-color: var(--bg-danger);
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease 0s;
+    padding: 6px 10px;
+}
+.product-list .product-name .add_to_cart:hover{
+    color: var(--text-danger);
+    background: transparent;
+    border-color: var(--bg-danger);
+}
+
+/* Fature Products  */
+.featureds{
+    max-width: 1088px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.featureds {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+}
+.featureds .prod-card img{
+    width: 200px;
+    height: 200px;
+}
+
+
+
+/* RATING CSS - STARS */
+.stars .stars-outer{
+    display: inline-block;
+    position: relative;
+  }
+.stars .stars-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+.stars .stars-outer::before{
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900;
+    color: gray;
+  }
+.stars .stars-inner::before{
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: 900;
+    color: #f8ce0b;
+  } 
+
+
+/* UP TO OFFER */
+
+.products .up-to-off{
+    position: relative;
+
+}
+.products .up-to-off img{
+    width: 100%;
+    height: 200px;
+}
+.products .up-to-off::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.2);
+    transition: 0.5s;
+}
+
+
+.products .up-to-off img{
+    transition: 0.4s;
+}
+.products .up-to-off:hover img{
+    transform: scale(1.2);
+}
+
+.products .up-to-content h2{
+    color: var(--text-white);
+    font-size: 2.3rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+
+
+
+
+
+/* Resposive Designs */
+/* I-pad Pro 1024 */
+@media  (max-width: 1030px){
+    /* Home CSS */
+    .home .home-banner-1,
+    .home .home-banner-2 {
+        background-position: 65% center;
+        min-height: 550px;
+    }
+
+    .home .home-banner .home-banner-text-1{
+        transform: translate(-100% , -62%);
+    }
+    .home .home-banner .home-banner-text-2{
+        transform: translate(-60% , -50%);
+    }
+    .home .home-banner-text h1{
+        font-size: 2.6rem;
+    }
+    .home .home-banner-text h3{
+        font-size: 1.5rem;
+    }
+     
+    .products .up-to-content h2{
+        font-size: 1.6rem;
+    }
+    .products .up-to-off img{
+        width: 100%;
+        height: 150px;
+    }
+
+}
+
+
+
+
+
+/* I-pad 760-991 */
+@media (max-width: 991px){
+    /* Home CSS */
+    .home .home-banner .home-banner-text-1{
+        transform: translate(-92% , -62%);
+    }
+    .home .home-banner .home-banner-text-2{
+        transform: translate(-70% , -50%);
+    }
+    .home .home-banner-text h1{
+        font-size: 2.6rem;
+    }
+    .home .home-banner-text h3{
+        font-size: 1.3rem;
+    }
+    .products .up-to-content h2{
+        font-size: 1.5rem;
+    }
+
+}
+
+
+
+/* Smart Phones */
+@media (max-width: 767px){
+    /* Home CSS */
+    .home .home-banner-1,
+    .home .home-banner-2 {
+        background-position: 40% center;
+        min-height: 450px;
+    }
+
+    .home .home-banner .home-banner-text-1{
+        text-align: center;
+        width: 100%;
+        transform: translate(-50% , -50%);
+    }
+    .home .home-banner .home-banner-text-2{
+        transform: translate(-50% , -40%);
+    }
+    .home .home-banner-text h1{
+        font-size: 2rem;
+    }
+    .home .home-banner-text h3 h2{
+        font-size: 1.5rem;
+    }    
+    .home .home-banner-text  .btn-danger{
+        padding: 0.7rem 1.4rem;
+        font-size: 0.9rem;
+    }
+    .home .home-banner-2 .home-banner-text-2 .btn-danger{
+        padding: 10px 15px;
+        font-size: 0.7rem;
+    }
+    .home .slider-icon{
+        font-size: 1.5rem;
+    }
+    
+    /* SALE RESPONSIVE */
+    .offers .offer-box .offer-image img{
+        height: 15rem;
+    }
+    
+
+    .offers .offer-box .offer-info{ 
+        height: 15rem;
+    }
+    
+    .row{
+        --bs-gutter-x: 0.5rem;           
+    }
+
+    .offers .offer-box .offer-info .offer-title-1{
+        font-size: .4rem;
+        letter-spacing: 1.5px;
+    }    
+    .offers .offer-box .offer-info .heading-bigger{
+        font-size: 1.2rem;    
+    }    
+
+    .btn-outline-danger{
+        padding: 0.2rem 0.4rem;
+        font-size: 0.4rem;
+    }    
+    .products .up-to-content h2{
+        font-size: 0.7rem;
+    }
+    .products .up-to-off img{
+        width: 100%;
+        height: 80px;
+    }    
+}
